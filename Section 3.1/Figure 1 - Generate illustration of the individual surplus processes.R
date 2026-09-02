@@ -1,5 +1,5 @@
 # Linear Risk Sharing in Community-Based Insurance: Ruin Reduction in the Compound Poisson Model 
-# R Code to calculate the ruin probability when each participant's claim sizes are Exponentially distributed - Example 5.1
+# R Code to calculate the ruin probability when each participant's claim sizes are Exponentially distributed - Generate Figure 1 in Section 3.1
 # Authors: Denuit, M., Flores-Contró, J. M. and Robert, C. Y.
 
 rm(list = ls())
