@@ -520,7 +520,7 @@ ruin_probs_alphas <- sapply(initial_capitals, function(kappa) {ruin_probability_
 file <- '/Users/jose/Library/CloudStorage/OneDrive-UCL/Documents/Postdoc/Linear Risk Sharing Project/R/Graphs/Latex Codes to Generate Graphs'
 setwd(file)
 
-tikz('PlotInfiniteTimeRuinProbabilityExample341 - Participant 1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
+tikz('PlotInfiniteTimeRuinProbabilitySection341 - Participant 1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
 par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
 MyColors <- pal_jco()(4)
 MyLines <-seq(from = 1, to = 4, by = 1)
@@ -532,7 +532,7 @@ my.expressions <- c("$\\psi_{1}\\left(\\kappa_{1}\\right)$", "$\\psi^{\\scaleto{
 legend("topright", inset = 0.02, legend = my.expressions, lty = MyLines, lwd = 2, col = MyColors, cex = 0.8)
 dev.off()
 
-tikz('PlotInfiniteTimeRuinProbabilityExample341 - Participant 2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
+tikz('PlotInfiniteTimeRuinProbabilitySection341 - Participant 2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
 par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
 MyColors <- pal_jco()(4)
 MyLines <-seq(from = 1, to = 4, by = 1)
@@ -544,7 +544,7 @@ my.expressions <- c("$\\psi_{2}\\left(\\kappa_{2}\\right)$", "$\\psi^{\\scaleto{
 legend("topright", inset = 0.02, legend = my.expressions, lty = MyLines, lwd = 2, col = MyColors, cex = 0.8)
 dev.off()
 
-tikz('PlotInfiniteTimeRuinProbabilityExample341 - Participant 3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
+tikz('PlotInfiniteTimeRuinProbabilitySection341 - Participant 3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
 par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
 MyColors <- pal_jco()(4)
 MyLines <-seq(from = 1, to = 4, by = 1)
@@ -556,7 +556,7 @@ my.expressions <- c("$\\psi_{3}\\left(\\kappa_{3}\\right)$", "$\\psi^{\\scaleto{
 legend("topright", inset = 0.02, legend = my.expressions, lty = MyLines, lwd = 2, col = MyColors, cex = 0.8)
 dev.off()
 
-tikz('PlotInfiniteTimeRuinProbabilityExample341 - All Participants MP.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
+tikz('PlotInfiniteTimeRuinProbabilitySection341 - All Participants MP.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
 my.expressions <- c("$\\psi_{{\\scaleto{1}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{2}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{3}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{1}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{2}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{3}{3pt}}}\\left(\\kappa\\right)$", "$\\psi\\left(\\kappa\\right)$")
 par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
 plot(initial_capitals, ruin_probsMP_1s, type = "l", lwd = 2, lty = 1, col = "blue", xaxs = "i", yaxs = "i", xlim = c(min(initial_capitals), 5), ylim = c(0, 1), xlab = "$\\kappa$", ylab = "Ruin Probability")
@@ -570,7 +570,7 @@ lines(initial_capitals, ruin_probs_alphas, lwd = 2, lty = 5, col = "purple")
 legend("topright", inset = 0.02, legend = my.expressions, col = c("blue", "green", "red", "orange", "gray", "brown", "purple"), lwd = c(2, 2, 2, 2, 2, 2, 2), lty = c(1, 1, 1, 2, 3, 4, 5), cex = 0.8)
 dev.off()
 
-tikz('PlotInfiniteTimeRuinProbabilityExample341 - All Participants ALT.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
+tikz('PlotInfiniteTimeRuinProbabilitySection341 - All Participants ALT.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{scalerel}", "\\usepackage{amsmath}"))
 my.expressions <- c("$\\psi_{{\\scaleto{1}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{2}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{3}{3pt}}}^{{\\scaleto{ {\\fontfamily{qcr}\\selectfont \\text{POOL}}}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{1}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{2}{3pt}}}\\left(\\kappa\\right)$", "$\\psi_{{\\scaleto{3}{3pt}}}\\left(\\kappa\\right)$", "$\\psi\\left(\\kappa\\right)$")
 par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
 plot(initial_capitals, ruin_probsALT_1s, type = "l", lwd = 2, lty = 1, col = "blue", xaxs = "i", yaxs = "i", xlim = c(min(initial_capitals), 5), ylim = c(0, 1), xlab = "$\\kappa$", ylab = "Ruin Probability")
