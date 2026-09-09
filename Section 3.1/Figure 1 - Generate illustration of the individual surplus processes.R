@@ -92,7 +92,7 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   
   # Set working directory and choose a seed so that we generate reproducible plots.
   setwd(file)
-  set.seed(15)
+  set.seed(29)
   
   # EULER-MARUYAMA METHOD: BEFORE POOLING TAKES PLACE
   
@@ -105,8 +105,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 1 - Generate Plot
   tikz('PlotCramerLundbergIndividual_1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{1,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{1,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_1 # Initial reserve 
   last_time <- 0
   
@@ -120,6 +120,9 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   segments(last_time, reserve, T, reserve + c_1*(T-last_time), lwd = 1, col = "blue") # Final blue line segment, premium accumulation with slope c_1
   dev.off()
   
+  # Choose a seed so that we generate reproducible plots.
+  set.seed(15)
+  
   # Participant 2 - Initial computations
   # Simulate claims
   N <- rpois(1, lambda_2 * T) # Number of claims in interval (0, T)
@@ -129,8 +132,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 2 - Generate Plot
   tikz('PlotCramerLundbergIndividual_2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{2,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{2,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_2 # Initial reserve
   last_time <- 0
   
@@ -144,6 +147,9 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   segments(last_time, reserve, T, reserve + c_2*(T-last_time), lwd = 1, col = "blue") # Final blue line segment, premium accumulation with slope c_2
   dev.off()
   
+  # Choose a seed so that we generate reproducible plots.
+  set.seed(37)
+  
   # Participant 3 - Initial computations
   # Simulate claims
   N <- rpois(1, lambda_3 * T) # Number of claims in interval (0, T)
@@ -153,8 +159,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 3 - Generate Plot
   tikz('PlotCramerLundbergIndividual_3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{3,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{3,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_3 # Initial reserve
   last_time <- 0
   
@@ -190,8 +196,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 1 - Generate Plot
   tikz('PlotCramerLundbergPooled_1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{1,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{1,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_1 # Initial reserve
   last_time <- 0
   
@@ -213,8 +219,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 2 - Generate Plot
   tikz('PlotCramerLundbergPooled_2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{2,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{2,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_2 # Initial reserve
   last_time <- 0
   
@@ -236,8 +242,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 3 - Generate Plot
   tikz('PlotCramerLundbergPooled_3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, T), ylim = c(0, 20), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{3,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 5, 10, 15, 20), labels = c("0", "5", "10", "15", "20"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{3,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
   reserve <- kappa_3 # Initial reserve
   last_time <- 0
   
@@ -253,6 +259,7 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   
 }
 
-EulerMaruyamaMethodResult <- EulerMaruyamaMethod(T = 20, eta = 2/5, kappa_1 = 5, lambda_1 = 0.3, mu_1 = 0.5, sigma_1 = 1, kappa_2 = 1, lambda_2 = 0.25, mu_2 = 0.45, sigma_2 = 1, kappa_3 = 4, lambda_3 = 0.2, mu_3 = 0.35, sigma_3 = 1, file = '/Users/jose/Library/CloudStorage/OneDrive-UCL/Documents/Postdoc/Linear Risk Sharing Project/R/Graphs/Latex Codes to Generate Graphs')
+EulerMaruyamaMethodResult <- EulerMaruyamaMethod(T = 20, eta = 2/5, kappa_1 = 5, lambda_1 = 0.3, mu_1 = 0.6, sigma_1 = 1, kappa_2 = 1, lambda_2 = 0.25, mu_2 = 0.55, sigma_2 = 1, kappa_3 = 4, lambda_3 = 0.2, mu_3 = 0.525, sigma_3 = 1, file = '/Users/jose/Library/CloudStorage/OneDrive-UCL/Documents/Postdoc/Linear Risk Sharing Project/R/Graphs/Latex Codes to Generate Graphs')
+
 
 
