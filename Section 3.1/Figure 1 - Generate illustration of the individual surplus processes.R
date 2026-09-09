@@ -184,8 +184,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   
   # Pooled participant 1 - Initial computations
   # Simulate claims
-  claim_sizes_1 <- c(M_1s[1] * claim_sizes_1, M_1s[2] * claim_sizes_2, M_1s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
-  claim_sizes_sorted_1 <- claim_sizes_1[idx] # We sort the claim severities 
+  claim_sizes_1_pool <- c(M_1s[1] * claim_sizes_1, M_1s[2] * claim_sizes_2, M_1s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
+  claim_sizes_sorted_1 <- claim_sizes_1_pool[idx] # We sort the claim severities 
   
   # Pooled participant 1 - Generate Plot
   tikz('PlotCramerLundbergPooled_1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
@@ -207,8 +207,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   
   # Pooled participant 2 - Initial computations
   # Simulate claims
-  claim_sizes_2 <- c(M_2s[1] * claim_sizes_1, M_2s[2] * claim_sizes_2, M_2s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
-  claim_sizes_sorted_2 <- claim_sizes_2[idx] # We sort the claim severities 
+  claim_sizes_2_pool <- c(M_2s[1] * claim_sizes_1, M_2s[2] * claim_sizes_2, M_2s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
+  claim_sizes_sorted_2 <- claim_sizes_2_pool[idx] # We sort the claim severities 
   
   # Pooled participant 2 - Generate Plot
   tikz('PlotCramerLundbergPooled_2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
@@ -230,8 +230,8 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   
   # Pooled participant 3 - Initial computations
   # Simulate claims
-  claim_sizes_3 <- c(M_3s[1] * claim_sizes_1, M_3s[2] * claim_sizes_2, M_3s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
-  claim_sizes_sorted_3 <- claim_sizes_3[idx] # We sort the claim severities
+  claim_sizes_3_pool <- c(M_3s[1] * claim_sizes_1, M_3s[2] * claim_sizes_2, M_3s[3] * claim_sizes_3) # Generate claim severities (or sizes). Recall that these are now scaled by the transfer ratios
+  claim_sizes_sorted_3 <- claim_sizes_3_pool[idx] # We sort the claim severities
   
   # Pooled participant 3 - Generate Plot
   tikz('PlotCramerLundbergPooled_3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
