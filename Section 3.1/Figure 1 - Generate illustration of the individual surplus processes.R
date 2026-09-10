@@ -105,24 +105,22 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 1 - Generate Plot
   tikz('PlotCramerLundbergIndividual_1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{1,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 12), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{1,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10, 12), labels = c("0", "2", "4", "6", "8", "10", "12"))
   reserve <- kappa_1 # Initial reserve 
   last_time <- 0
   
   for(i in seq_along(claim_times_1)){
     reserve_before <- reserve + c_1 * (claim_times_1[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_1[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_1
-    segments(claim_times_1[i], reserve_before, claim_times_1[i], reserve_before - claim_sizes_1[i], lwd = 1, lty = jump_lty[1], col = jump_col[1]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 1) 
+    segments(claim_times_1[i], reserve_before, claim_times_1[i], reserve_before - claim_sizes_1[i], lwd = 4, lty = jump_lty[1], col = jump_col[1]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 1) 
     reserve <- reserve_before - claim_sizes_1[i]  # Update surplus process
     last_time <- claim_times_1[i] # Update time of last occurrence
   }
   segments(last_time, reserve, T, reserve + c_1*(T-last_time), lwd = 1, col = "blue") # Final blue line segment, premium accumulation with slope c_1
   dev.off()
   
-  # Choose a seed so that we generate reproducible plots.
   set.seed(15)
-  
   # Participant 2 - Initial computations
   # Simulate claims
   N <- rpois(1, lambda_2 * T) # Number of claims in interval (0, T)
@@ -132,24 +130,22 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 2 - Generate Plot
   tikz('PlotCramerLundbergIndividual_2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{2,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 5), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{2,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5"))
   reserve <- kappa_2 # Initial reserve
   last_time <- 0
   
   for(i in seq_along(claim_times_2)){
     reserve_before <- reserve + c_2 * (claim_times_2[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_2[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_2
-    segments(claim_times_2[i], reserve_before, claim_times_2[i], reserve_before - claim_sizes_2[i], lwd = 1, lty = jump_lty[2], col = jump_col[2]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 2) 
+    segments(claim_times_2[i], reserve_before, claim_times_2[i], reserve_before - claim_sizes_2[i], lwd = 4, lty = jump_lty[2], col = jump_col[2]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 2) 
     reserve <- reserve_before - claim_sizes_2[i] # Update surplus process
     last_time <- claim_times_2[i] # Update time of last occurrence
   }
-  segments(last_time, reserve, T, reserve + c_2*(T-last_time), lwd = 1, col = "blue") # Final blue line segment, premium accumulation with slope c_2
+  segments(last_time, reserve, T, reserve + c_2*(T-last_time), lwd = 4, col = "blue") # Final blue line segment, premium accumulation with slope c_2
   dev.off()
   
-  # Choose a seed so that we generate reproducible plots.
-  set.seed(37)
-  
+  set.seed(38)
   # Participant 3 - Initial computations
   # Simulate claims
   N <- rpois(1, lambda_3 * T) # Number of claims in interval (0, T)
@@ -159,15 +155,15 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Participant 3 - Generate Plot
   tikz('PlotCramerLundbergIndividual_3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{3,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 7), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V_{3,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 1, 2, 3, 4, 5, 6, 7), labels = c("0", "1", "2", "3", "4", "5", "6", "7"))
   reserve <- kappa_3 # Initial reserve
   last_time <- 0
   
   for(i in seq_along(claim_times_3)){
     reserve_before <- reserve + c_3 * (claim_times_3[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_3[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_3
-    segments(claim_times_3[i], reserve_before, claim_times_3[i], reserve_before - claim_sizes_3[i], lwd = 1, lty = jump_lty[3], col = jump_col[3]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 3) 
+    segments(claim_times_3[i], reserve_before, claim_times_3[i], reserve_before - claim_sizes_3[i], lwd = 4, lty = jump_lty[3], col = jump_col[3]) # Jumps in the path; i.e., claims occurrences, styled by originating participant (here, participant 3) 
     reserve <- reserve_before - claim_sizes_3[i] # Update surplus process
     last_time <- claim_times_3[i] # Update time of last occurrence
   }
@@ -196,15 +192,15 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 1 - Generate Plot
   tikz('PlotCramerLundbergPooled_1.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{1,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 12), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{1,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 2, 4, 6, 8, 10, 12), labels = c("0", "2", "4", "6", "8", "10", "12"))
   reserve <- kappa_1 # Initial reserve
   last_time <- 0
   
   for(i in seq_along(claim_times_sorted)){
     reserve_before <- reserve + c_1 * (claim_times_sorted[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_sorted[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_1
-    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_1[i], lwd = 1, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
+    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_1[i], lwd = 4, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
     reserve <- reserve_before - claim_sizes_sorted_1[i] # Update surplus process
     last_time <- claim_times_sorted[i] # Update time of last occurrence
   }
@@ -219,15 +215,15 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 2 - Generate Plot
   tikz('PlotCramerLundbergPooled_2.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{2,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 5), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{2,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 1, 2, 3, 4, 5), labels = c("0", "1", "2", "3", "4", "5"))
   reserve <- kappa_2 # Initial reserve
   last_time <- 0
   
   for(i in seq_along(claim_times_sorted)){
     reserve_before <- reserve + c_2 * (claim_times_sorted[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_sorted[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_2
-    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_2[i], lwd = 1, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
+    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_2[i], lwd = 4, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
     reserve <- reserve_before - claim_sizes_sorted_2[i] # Update surplus process
     last_time <- claim_times_sorted[i] # Update time of last occurrence
   }
@@ -242,15 +238,15 @@ EulerMaruyamaMethod <- function(T = 20, eta = 2/5, kappa_1 = 15, lambda_1 = 0.25
   # Pooled participant 3 - Generate Plot
   tikz('PlotCramerLundbergPooled_3.tex', standAlone = TRUE, width = 4, height = 4, packages = c("\\usepackage{tikz}", "\\usepackage[active,tightpage,psfixbb]{preview}", "\\PreviewEnvironment{pgfpicture}", "\\setlength\\PreviewBorder{0pt}", "\\usepackage{amssymb}", "\\usepackage{amsmath}"))
   par(mgp = c(2.5, 1, 0), mar = c(3.5, 3.5, 1, 1) + 0.1)
-  plot(NA, xlim = c(0, 10), ylim = c(0, 10), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{3,t}$", yaxt = "n")
-  axis(side = 2, at = c(0, 2, 4, 6, 8, 10), labels = c("0", "2", "4", "6", "8", "10"))
+  plot(NA, xlim = c(0, 10), ylim = c(0, 7), xaxs = "i", yaxs = "i", cex.lab = 1, cex.axis = 1, xlab = "$t$", ylab = "$V^{\\text{pool}}_{3,t}$", yaxt = "n")
+  axis(side = 2, at = c(0, 1, 2, 3, 4, 5, 6, 7), labels = c("0", "1", "2", "3", "4", "5", "6", "7"))
   reserve <- kappa_3 # Initial reserve
   last_time <- 0
   
   for(i in seq_along(claim_times_sorted)){
     reserve_before <- reserve + c_3 * (claim_times_sorted[i] - last_time) # Reserve immediately before the claim
     segments(last_time, reserve, claim_times_sorted[i], reserve_before, lwd = 1, col = "blue") # Solid blue line, premium accumulation with slope c_3
-    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_3[i], lwd = 1, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
+    segments(claim_times_sorted[i], reserve_before, claim_times_sorted[i], reserve_before - claim_sizes_sorted_3[i], lwd = 4, lty = jump_lty[claim_origin_sorted[i]], col = jump_col[claim_origin_sorted[i]]) # Jumps in the path; color/line type depend on which participant originated the claim
     reserve <- reserve_before - claim_sizes_sorted_3[i] # Update surplus process
     last_time <- claim_times_sorted[i] # Update time of last occurrence
   }
